@@ -44,32 +44,38 @@ public class DeFaultLoadViewFactory implements ILoadViewFactory {
 
 		protected TextView footView;
 
+		protected OnClickListener onClickRefreshListener;
+
 		@Override
 		public void init(ListView listView, OnClickListener onClickRefreshListener) {
 			footView = (TextView) LayoutInflater.from(listView.getContext()).inflate(R.layout.layout_listview_foot, listView, false);
-			footView.setOnClickListener(onClickRefreshListener);
 			listView.addFooterView(footView);
+			this.onClickRefreshListener = onClickRefreshListener;
 			showNormal();
 		}
 
 		@Override
 		public void showNormal() {
 			footView.setText("点击加载更多");
+			footView.setOnClickListener(onClickRefreshListener);
 		}
 
 		@Override
 		public void showLoading() {
 			footView.setText("正在加载中..");
+			footView.setOnClickListener(null);
 		}
 
 		@Override
 		public void showFail() {
 			footView.setText("加载失败，点击重新加载");
+			footView.setOnClickListener(onClickRefreshListener);
 		}
 
 		@Override
 		public void showNomore() {
 			footView.setText("已经加载完毕");
+			footView.setOnClickListener(null);
 		}
 
 	}
