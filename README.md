@@ -1,3 +1,5 @@
+#MVCHelper 替代该类库可以任意view使用该mvc架构，可以自由选择主流的下拉刷新框架,地址:https://github.com/LuckyJayce/MVCHelper
+
 # ListViewHelper
 ListViewHelper. 实现下拉刷新，滚动底部自动加载更多，分页加载，自动切换显示网络失败布局，暂无数据布局，,真正的MVC架构.
 ## 1.Model (IDataSource<DATA>) 负责获取数据
